@@ -1,5 +1,5 @@
 # bachelor-
-Programm must allow 1. to input "Automata" also an Object with 5 Elements
+Programm must allow -to input "Automata" also an Object with 5 Elements
 a Automata consist of 1. Dimension n (Integer) 
                       2. Init. Vector(double[]) of lenght = n
                       3. Matrix A0 (double[][]) n x n Matrix for Input = 0
@@ -17,14 +17,14 @@ After all elements of Automata are correctly received and saved,
 then programm have to 
 
 <first>
-calculate Function F(finite) and f(infinite) for String-input from 000000000 - 111111111 (0-2^10)
+-calculate Function F(finite) and f(infinite) for String-input from 000000000 - 111111111 (0-2^10)
 and then plot a 2D xy-Graph, 
 
 x =  0.input to decimal
 y =  output of function f of input
 
 <second
-  Check if this recieved Automata "minimal" by prosedure
+ -Check if this recieved Automata "minimal" by prosedure
   
   = Yes : output => already minimal
   = No : minimize Automat til get a minimal Automat => output a new minimal Automat 
