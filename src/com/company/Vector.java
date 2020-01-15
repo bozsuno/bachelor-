@@ -7,6 +7,9 @@ import java.util.regex.Pattern;
 
 import static java.lang.Math.sqrt;
 
+/**
+ * A Vector as a 2D Arrays of double
+ */
 public class Vector implements Comparable<Vector> {
 
     protected int dim;
@@ -17,24 +20,38 @@ public class Vector implements Comparable<Vector> {
         dim=n;
     }
 
-
+    /**
+     * Returns an element of the given index
+     * @param n an index
+     * @return
+     */
     public double getElement(int n){
         return this.ele[n-1];
     }
 
-    public void setElement(int n, int value){
+    /**
+     * Sets the element of the given index
+     * @param n an element
+     * @param value
+     */
+    public void setElement(int n, double value){
         this.ele[n-1] = value;
     }
 
-
+    /**
+     * Sets a given String as elements of the vector
+     * @param element
+     */
     public void setElement(String element){
+        //counts the number of comma
         Pattern comma = Pattern.compile(",");
         Matcher Comma = comma.matcher(element);
         int countComma = 0;
         while(Comma.find()) countComma++;
         int dimension = countComma+1;
-        if (dimension!=this.dim) {}//throw error
-        else
+        //check
+        if (dimension!=this.dim) throw new IllegalArgumentException("Number of elements doesn't match its dimension");
+        else {
         if (element.matches("([0-9]+[,[0-9]+]*)+")){
             String[] help = element.split(",");
             for (int i=0; i<this.dim ; i++){
@@ -44,9 +61,13 @@ public class Vector implements Comparable<Vector> {
         }
         else {
             throw new IllegalArgumentException("String doesn't match");
-        }
+        }}
     }
 
+    /**
+     * Checks whatif a vector is zero-vector
+     * @return
+     */
     boolean isNull(){
 
         boolean res = true;
@@ -80,6 +101,10 @@ public class Vector implements Comparable<Vector> {
         }
     }
 
+    /**
+     * Computes the length of a vector
+     * @return
+     */
     public double lenght(){
         double l=0;
         for (int i=0;i<this.dim;i++){
@@ -88,6 +113,10 @@ public class Vector implements Comparable<Vector> {
         return sqrt(l);
     }
 
+    /**
+     * normalises the length of a vector
+     * @return
+     */
     public Vector norm(){
         Vector n = new Vector(this.dim);
         n.div(this.lenght());
